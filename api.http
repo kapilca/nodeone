@@ -4,14 +4,25 @@ POST http://localhost:3002/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "asdfsf",
-    "course": "fsf",
+    "name": "ffsssgg",
+    "course": "eeee",
     "active": 1,
     "officeId":2
+}
+
+###
+PUT http://localhost:3002/customers/6 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Shirin",
+    "course": "WebDev",
+    "active": 1,
+    "officeId": 1
 }
 
 ###
 GET http://localhost:3002/customers
 
 ###
-GET http://localhost:3002/customers/4
+GET http://localhost:3002/customers/6

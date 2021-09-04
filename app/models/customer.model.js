@@ -58,8 +58,8 @@ Customer.getAll = result => {
 
 Customer.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE customers SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE customers SET name = ?, active = ?, course = ?, officeId = ? WHERE id = ?",
+    [customer.name, customer.active, customer.course, customer.officeId, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
