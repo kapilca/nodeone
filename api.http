@@ -1,17 +1,17 @@
 ### POST craete customer
 
-POST http://localhost:3002/customers HTTP/1.1
+POST http://localhost/nodeone/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "ffsssgg",
-    "course": "eeee",
+    "name": "Smitha Trivedi",
+    "course": "Aesthetician",
     "active": 1,
     "officeId":2
 }
 
 ###
-PUT http://localhost:3002/customers/6 HTTP/1.1
+PUT http://localhost/nodeone/customers/6 HTTP/1.1
 content-type: application/json
 
 {
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3002/customers
+GET http://localhost/nodeone/customers
 
 ###
-GET http://localhost:3002/customers/6
+GET http://localhost/nodeone/customers/6
