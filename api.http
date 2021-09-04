@@ -1,0 +1,17 @@
+### POST craete customer
+
+POST http://localhost:3002/customers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "asdfsf",
+    "course": "fsf",
+    "active": 1,
+    "officeId":2
+}
+
+###
+GET http://localhost:3002/customers
+
+###
+GET http://localhost:3002/customers/4
