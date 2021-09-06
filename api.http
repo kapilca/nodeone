@@ -4,8 +4,8 @@ POST http://localhost/nodeone/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Smitha Trivedi",
-    "course": "Aesthetician",
+    "name": "Testing This",
+    "course": "Abrakadabra",
     "active": 1,
     "officeId":2
 }
@@ -15,8 +15,8 @@ PUT http://localhost/nodeone/customers/6 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Shirin",
-    "course": "WebDev",
+    "name": "Katie",
+    "course": "Dog Training",
     "active": 1,
     "officeId": 1
 }
