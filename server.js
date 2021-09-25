@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const dateFormat = require("date-format");
+require('dotenv').config();
+
+const { format } = require("./app/models/db.js");
 
 const app = express();
-
-require('dotenv').config();
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -21,5 +23,5 @@ require("./app/routes/customer.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+  console.log(`Server is running on port ${PORT}. at ` + dateFormat('dd-mm-yy hh:mm'));
 });
