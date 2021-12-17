@@ -1,7 +1,7 @@
 const sql = require("./db.js");
 
 // constructor
-const Customer = function(customer) {
+const Customer = function (customer) {
   this.name = customer.name;
   this.course = customer.course;
   this.active = customer.active;
@@ -22,38 +22,46 @@ Customer.create = (newCustomer, result) => {
 };
 
 Customer.findById = (customerId, result) => {
-  sql.query(`SELECT c.id, c.name, c.course, c.active, o.officename 
-            FROM customers c JOIN offices o ON c.officeId=o.id 
-            WHERE c.id = ${customerId}`, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
+  sql.query(
+    `SELECT c.id, c.name, c.course, s.status, o.officename 
+            FROM customers c 
+            JOIN offices o ON c.officeId=o.id 
+            JOIN status s ON c.statusId=s.id
+            WHERE c.id = ${customerId}`,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
 
-    if (res.length) {
-      console.log("found customer: ", res[0]);
-      result(null, res[0]);
-      return;
-    }
+      if (res.length) {
+        console.log("found customer: ", res[0]);
+        result(null, res[0]);
+        return;
+      }
 
-    // not found Customer with the id
-    result({ kind: "not_found" }, null);
-  });
+      // not found Customer with the id
+      result({ kind: "not_found" }, null);
+    }
+  );
 };
 
-Customer.getAll = result => {
-  sql.query(`SELECT c.id, c.name, c.course, c.active, o.officename 
-            FROM customers c JOIN offices o ON c.officeId=o.id `, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
+Customer.getAll = (result) => {
+  sql.query(
+    `SELECT c.id, c.name, c.course, s.status, o.officename 
+            FROM customers c JOIN offices o ON c.officeId=o.id JOIN status s ON c.statusId=s.id`,
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
 
-    console.log("customers: ", res);
-    result(null, res);
-  });
+      console.log("customers: ", res);
+      result(null, res);
+    }
+  );
 };
 
 Customer.updateById = (id, customer, result) => {
@@ -98,7 +106,7 @@ Customer.remove = (id, result) => {
   });
 };
 
-Customer.removeAll = result => {
+Customer.removeAll = (result) => {
   sql.query("DELETE FROM customers", (err, res) => {
     if (err) {
       console.log("error: ", err);

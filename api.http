@@ -1,6 +1,6 @@
 ### POST craete customer
 
-POST http://localhost/nodeone/customers HTTP/1.1
+POST http://sharp.local/nodeone/customers HTTP/1.1
 content-type: application/json
 
 {
@@ -11,7 +11,7 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost/nodeone/customers/6 HTTP/1.1
+PUT http://sharp.local/nodeone/customers/6 HTTP/1.1
 content-type: application/json
 
 {
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost/nodeone/customers
+GET http://sharp.local/nodeone/customers
 
 ###
-GET http://localhost/nodeone/customers/6
+GET http://sharp.local/nodeone/customers/6

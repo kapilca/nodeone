@@ -1,5 +1,6 @@
 const mysql = require("mysql2");
 
+//ISSUE: jira issue 1123
 var connection = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
