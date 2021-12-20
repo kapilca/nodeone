@@ -1,12 +1,12 @@
 const Customer = require("../models/customer.model.js");
-const Office = require('../models/office.model.js');
+const Office = require("../models/office.model.js");
 
 // Create and Save a new Customer
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -14,8 +14,8 @@ exports.create = (req, res) => {
   const customer = new Customer({
     name: req.body.name,
     course: req.body.course,
-    active: req.body.active,
-    officeId: req.body.officeId
+    statusId: req.body.statusId,
+    officeId: req.body.officeId,
   });
 
   // Save Customer in the database
@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Customer."
+          err.message || "Some error occurred while creating the Customer.",
       });
     else res.send(data);
   });
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving customers."
+          err.message || "Some error occurred while retrieving customers.",
       });
     else res.send(data);
   });
@@ -47,11 +47,11 @@ exports.findOne = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Customer with id ${req.params.customerId}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Customer with id " + req.params.customerId
+          message: "Error retrieving Customer with id " + req.params.customerId,
         });
       }
     } else res.send(data);
@@ -63,7 +63,7 @@ exports.update = (req, res) => {
   // Validate Request
   if (!req.body) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -76,11 +76,11 @@ exports.update = (req, res) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.customerId}.`,
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.customerId,
           });
         }
       } else res.send(data);
@@ -94,11 +94,11 @@ exports.delete = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Customer with id ${req.params.customerId}.`,
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.customerId
+          message: "Could not delete Customer with id " + req.params.customerId,
         });
       }
     } else res.send({ message: `Customer was deleted successfully!` });
@@ -111,7 +111,7 @@ exports.deleteAll = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all customers."
+          err.message || "Some error occurred while removing all customers.",
       });
     else res.send({ message: `All Customers were deleted successfully!` });
   });

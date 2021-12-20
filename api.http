@@ -1,28 +1,28 @@
 ### POST craete customer
 
-POST http://sharp.local/nodeone/customers HTTP/1.1
+POST http://dev.local/nodeone/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Testing This",
-    "course": "Abrakadabra",
-    "active": 1,
+    "name": "AnewStart",
+    "course": "TestingAPI",
+    "statusId": 1,
     "officeId":2
 }
 
 ###
-PUT http://sharp.local/nodeone/customers/6 HTTP/1.1
+PUT http://dev.local/nodeone/customers/6 HTTP/1.1
 content-type: application/json
 
 {
     "name": "Katie",
     "course": "Dog Training",
-    "active": 1,
+    "statusId": 1,
     "officeId": 1
 }
 
 ###
-GET http://sharp.local/nodeone/customers
+GET http://dev.local/nodeone/customers
 
 ###
-GET http://sharp.local/nodeone/customers/6
+GET http://dev.local/nodeone/customers/6
